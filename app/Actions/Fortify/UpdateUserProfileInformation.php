@@ -3,9 +3,11 @@
 namespace App\Actions\Fortify;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
+use MongoDB\Driver\Session;
 
 class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 {
@@ -55,6 +57,11 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'username' => $input['username'],
                 'email' => $input['email'],
             ])->save();
+
+            Auth::logout();
+            \session()->invalidate();
+            \session()->regenerateToken();
+            redirect(route('login'));
         }
     }
 
@@ -87,5 +94,10 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
         ])->save();
 
         $user->sendEmailVerificationNotification();
+
+        Auth::logout();
+        \session()->invalidate();
+        \session()->regenerateToken();
+        redirect(route('login'));
     }
 }
