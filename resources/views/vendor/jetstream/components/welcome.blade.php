@@ -26,6 +26,7 @@
         <div class="ml-12">
             <div class="mt-2 text-sm text-gray-500">
                 Please click on the round icon at the right hand side of the top menubar. Now a drop-down menu will appear.
+                <img src="{{ secure_asset('img/verification-step-one.png') }}">
             </div>
         </div>
     </div>
@@ -39,6 +40,7 @@
         <div class="ml-12">
             <div class="mt-2 text-sm text-gray-500">
                 In the dropdown menu please select the "Profile" menu-item and click on it.
+                <img src="{{ secure_asset('img/verification-step-two.png') }}">
             </div>
         </div>
     </div>
@@ -54,6 +56,7 @@
                 On the next page please provide all of the required data and click "SAVE" button.
                 Now you will be automatically logged out and being redirected to the login page.
                 Please login with your previously provided credentials.
+                <img src="{{ secure_asset('img/verification-step-three.png') }}">
             </div>
         </div>
     </div>
