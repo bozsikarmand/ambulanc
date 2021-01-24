@@ -58,9 +58,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'email' => $input['email'],
             ])->save();
 
+            flash('Thank you, everything is set! Please wait for the approval of your account by one of our administrators. We will notify you via email once it is done.')->success();
             Auth::logout();
-            \session()->invalidate();
-            \session()->regenerateToken();
             redirect(route('login'));
         }
     }
@@ -95,9 +94,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 
         $user->sendEmailVerificationNotification();
 
+        flash('Thank you, everything is set! Please wait for the approval of your account by one of our administrators. We will notify you via email once it is done.')->success();
         Auth::logout();
-        \session()->invalidate();
-        \session()->regenerateToken();
         redirect(route('login'));
     }
 }

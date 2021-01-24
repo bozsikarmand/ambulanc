@@ -12,6 +12,8 @@
             </div>
         @endif
 
+        <livewire:flash-container />
+
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
