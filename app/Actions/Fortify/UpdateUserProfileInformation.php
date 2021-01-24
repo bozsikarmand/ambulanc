@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Laravel\Fortify\Contracts\UpdatesUserProfileInformation;
-use MongoDB\Driver\Session;
 
 class UpdateUserProfileInformation implements UpdatesUserProfileInformation
 {
