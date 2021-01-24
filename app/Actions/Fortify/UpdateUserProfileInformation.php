@@ -56,6 +56,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'lastname' => $input['lastname'],
                 'username' => $input['username'],
                 'email' => $input['email'],
+                'landlinetel' => $input['landlinetel'],
+                'mobiletel' => $input['mobiletel'],
             ])->save();
 
             flash('Thank you, everything is set! Please wait for the approval of your account by one of our administrators. We will notify you via email once it is done.')->success();
@@ -90,6 +92,8 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             'username' => $input['username'],
             'email' => $input['email'],
             'email_verified_at' => null,
+            'landlinetel' => $input['landlinetel'],
+            'mobiletel' => $input['mobiletel'],
         ])->save();
 
         $user->sendEmailVerificationNotification();
